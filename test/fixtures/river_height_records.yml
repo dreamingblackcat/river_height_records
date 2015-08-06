@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city_id: 1
+  river_id: 1
+  record_time: 2015-08-07 00:05:49
+  description: MyText
+  feet_above: 1
+  prediction: MyString
+
+two:
+  city_id: 1
+  river_id: 1
+  record_time: 2015-08-07 00:05:49
+  description: MyText
+  feet_above: 1
+  prediction: MyString

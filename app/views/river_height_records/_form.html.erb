@@ -1,0 +1,41 @@
+<%= form_for(@river_height_record) do |f| %>
+  <% if @river_height_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@river_height_record.errors.count, "error") %> prohibited this river_height_record from being saved:</h2>
+
+      <ul>
+      <% @river_height_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :city_id %><br>
+    <%= f.collection_select :city_id, City.all, :id, :mm_name, {},{class: 'form-control' }%>
+  </div>
+  <div class="field">
+    <%= f.label :river_id %><br>
+    <%= f.collection_select :city_id, River.all, :id, :mm_name, {},{ class: 'form-control' }%>
+  </div>
+  <div class="field">
+    <%= f.label :record_time %><br>
+    <%= f.datetime_select :record_time %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, rows: 5, cols: 80 %>
+  </div>
+  <div class="field">
+    <%= f.label :feet_above %><br>
+    <%= f.number_field :feet_above %>
+  </div>
+  <div class="field">
+    <%= f.label :prediction %><br>
+    <%= f.text_area :prediction, rows: 5, cols: 80 %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-primary'%>
+  </div>
+<% end %>

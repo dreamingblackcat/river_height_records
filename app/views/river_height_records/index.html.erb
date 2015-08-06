@@ -1,0 +1,46 @@
+<%- model_class = RiverHeightRecord -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:city_id) %></th>
+      <th><%= model_class.human_attribute_name(:river_id) %></th>
+      <th><%= model_class.human_attribute_name(:record_time) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:feet_above) %></th>
+      <th><%= model_class.human_attribute_name(:prediction) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @river_height_records.each do |river_height_record| %>
+      <tr>
+        <td><%= link_to river_height_record.id, river_height_record_path(river_height_record) %></td>
+        <td><%= river_height_record.city_id %></td>
+        <td><%= river_height_record.river_id %></td>
+        <td><%= river_height_record.record_time %></td>
+        <td><%= river_height_record.description %></td>
+        <td><%= river_height_record.feet_above %></td>
+        <td><%= river_height_record.prediction %></td>
+        <td><%=l river_height_record.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_river_height_record_path(river_height_record), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      river_height_record_path(river_height_record),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_river_height_record_path,
+            :class => 'btn btn-primary' %>
