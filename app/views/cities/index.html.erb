@@ -36,7 +36,13 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<div class="row">
+  <div class="col-md-3">    
+    <%= link_to t('.new', :default => t("helpers.links.new")),
             new_city_path,
             :class => 'btn btn-primary' %>
+  </div>
+  <div class="col-md-9">
+    <%= will_paginate @cities, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>

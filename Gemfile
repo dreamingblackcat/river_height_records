@@ -51,4 +51,6 @@ gem 'active_model_serializers'
 gem "twitter-bootstrap-rails"
 gem 'figaro'
 gem 'mmunicode_rails'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 

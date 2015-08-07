@@ -40,7 +40,13 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_river_height_record_path,
-            :class => 'btn btn-primary' %>
+<div class="row">
+  <div class="col-md-3">    
+    <%= link_to t('.new', :default => t("helpers.links.new")),
+                new_river_height_record_path,
+                :class => 'btn btn-primary' %>
+  </div>
+  <div class="col-md-9">
+    <%= will_paginate @river_height_records, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
