@@ -4,11 +4,11 @@ class RiverHeightRecordsController < ApplicationController
   # GET /river_height_records
   # GET /river_height_records.json
   def index
-    @river_height_records = RiverHeightRecord.all
-
+    @river_height_records = all_or_filter_by_river(params[:river_id])
+    @api_result = @river_height_records.group_by {|rh| rh.record_time.to_date}
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @river_height_records }
+      format.json { render json: @api_result }
     end
   end
 
@@ -79,5 +79,13 @@ class RiverHeightRecordsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def river_height_record_params
       params.require(:river_height_record).permit(:city_id, :river_id, :record_time, :description, :feet_above, :prediction)
+    end
+
+    def all_or_filter_by_river(river_id)
+      if params[:river_id] then
+        RiverHeightRecord.where(river_id: params[:river_id])
+      else
+        RiverHeightRecord.all
+      end
     end
 end
