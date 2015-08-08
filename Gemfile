@@ -53,4 +53,5 @@ gem 'figaro'
 gem 'mmunicode_rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'responders',  '~> 2.0'
 
