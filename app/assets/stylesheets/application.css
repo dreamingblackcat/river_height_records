@@ -13,6 +13,6 @@
   font-family:Myanmar3,Yunghkio!important;
 }
 
-input {
+input, textarea {
   font-family:Zawgyi-One!important;
 }
