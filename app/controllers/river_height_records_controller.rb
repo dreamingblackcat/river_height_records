@@ -5,10 +5,8 @@ class RiverHeightRecordsController < ApplicationController
   # GET /river_height_records.json
   def index
     @river_height_records = all_or_filter_by_river(params[:river_id]).paginate(page: params[:page], per_page: 5)
-    @api_result = @river_height_records.group_by {|rh| rh.record_time.to_date}
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @api_result }
     end
   end
 
