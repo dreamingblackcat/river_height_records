@@ -1,0 +1,5 @@
+
+DB_USERNAME: your_db_username
+DB_PASSWORD: your_db_password
+HTTP_BASIC_USERNAME: username_for_admin_edits
+HTTP_BASIC_PASSWORD: password_for_admin_edits
