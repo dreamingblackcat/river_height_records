@@ -20,7 +20,7 @@ After cloning the repo, setup necessary config in `application.yml`(Please See t
   rake db:create
   rake db:migrate
   rails s
-``
+```
 
 
 ##Contributing
